@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  secgpt:
+    build: .
+    environment:
+      - GPT_API_KEY=your_gpt_api_key_here
+    # Example command to run a scan on "abc.com" with verbose logging.
+    command: ["python", "main.py", "-t", "abc.com", "-p", "80,443", "--verbose"]
