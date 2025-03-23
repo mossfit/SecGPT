@@ -2,6 +2,7 @@ import argparse
 from secgpt.scanner import scan_target
 from secgpt.analyzer import analyze_scan_results
 from secgpt.reporter import generate_report
+from secgpt.logger import setup_logger
 
 def parse_arguments():
 
@@ -25,6 +26,10 @@ def main():
     except ValueError:
         print("Error: Ports must be a comma-separated list of integers.")
         exit(1)
+
+    logger = setup_logger(__name__, verbose=args.verbose)
+    logger.info(f"Target: {target}")
+    logger.info(f"Ports: {ports}")
     
     if args.verbose:
         print(f"[INFO] Target: {target}")
@@ -40,6 +45,7 @@ def main():
     report_file = generate_report(scan_results, recommendations, verbose=args.verbose)
     
     # Final output
+    logger.info("Informational message")
     print("Scan Results:", scan_results)
     print("Recommendations:", recommendations)
     print(f"Report saved as: {report_file}")
