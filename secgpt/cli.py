@@ -1,6 +1,7 @@
 import argparse
 from secgpt.scanner import scan_target
 from secgpt.analyzer import analyze_scan_results
+from secgpt.reporter import generate_report
 
 def parse_arguments():
     """
@@ -34,12 +35,19 @@ def main():
         print(f"[INFO] Target: {target}")
         print(f"[INFO] Ports to scan: {ports}")
     
-    # Call the scanning module
+    # Module 3: Scanning
     scan_results = scan_target(target, ports, verbose=args.verbose)
     
-    # Call the analyzer module
+    # Module 2: GPT Analysis
     recommendations = analyze_scan_results(scan_results, verbose=args.verbose)
     
-    # Display final results
+    # Module 4: Reporting
+    report_file = generate_report(scan_results, recommendations, verbose=args.verbose)
+    
+    # Final output
     print("Scan Results:", scan_results)
     print("Recommendations:", recommendations)
+    print(f"Report saved as: {report_file}")
+
+if __name__ == '__main__':
+    main()
