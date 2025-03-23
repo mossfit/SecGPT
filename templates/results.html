@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SecGPT Scan Results</title>
+</head>
+<body>
+  <h1>Scan Results</h1>
+  <h2>Target: {{ scan_results.target }}</h2>
+  
+  <h3>Open Ports:</h3>
+  <ul>
+    {% for port in scan_results.open_ports %}
+      <li>{{ port }}</li>
+    {% endfor %}
+  </ul>
+  
+  <h3>Closed Ports:</h3>
+  <ul>
+    {% for port in scan_results.closed_ports %}
+      <li>{{ port }}</li>
+    {% endfor %}
+  </ul>
+  
+  <h2>Recommendations</h2>
+  <p>{{ recommendations }}</p>
+  
+  <h3>Report File:</h3>
+  <p>{{ report_file }}</p>
+  
+  <a href="{{ url_for('index') }}">Run another scan</a>
+</body>
+</html>
