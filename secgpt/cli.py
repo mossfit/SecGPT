@@ -4,12 +4,7 @@ from secgpt.analyzer import analyze_scan_results
 from secgpt.reporter import generate_report
 
 def parse_arguments():
-    """
-    Parse command-line arguments:
-    - target: The target IP address or domain.
-    - ports: Comma-separated ports to scan (default: 80,443).
-    - verbose: Enable verbose output.
-    """
+
     parser = argparse.ArgumentParser(
         description='SecGPT - AI Assisted Security Tool for vulnerability scanning and recommendations.'
     )
