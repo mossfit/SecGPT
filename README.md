@@ -1,3 +1,5 @@
+![SecGPT Cover](https://images.pexels.com/photos/277394/pexels-photo-277394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
+
 # SecGPT
 
 SecGPT is an AI-assisted security tool for vulnerability scanning and recommendations. It combines a command-line interface with modular components for scanning and analysis. Inspired by PentestGPT, this project is designed to be extended and integrated with advanced AI functionalities.
