@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>SecGPT Web Interface</title>
+</head>
+<body>
+  <h1>SecGPT Web Interface</h1>
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+  <form method="POST">
+    <label for="target">Target (IP or Domain):</label>
+    <input type="text" id="target" name="target" required>
+    <br>
+    <label for="ports">Ports (comma-separated):</label>
+    <input type="text" id="ports" name="ports" value="80,443" required>
+    <br>
+    <label for="verbose">Verbose Logging:</label>
+    <input type="checkbox" id="verbose" name="verbose">
+    <br>
+    <button type="submit">Start Scan</button>
+  </form>
+</body>
+</html>
